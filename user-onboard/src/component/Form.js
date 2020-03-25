@@ -68,9 +68,10 @@ export default function Form(){
                 password:'',
                 terms:'',
             })
-            setUsers({
-                ...users, setFormState
-            })
+            setUsers([
+                ...users, res.data
+            ])
+            console.log(users)
         })
         .catch(err =>{
             console.log(err.res)
@@ -138,7 +139,8 @@ export default function Form(){
 
             </label> <br/>
 
-            <pre>{JSON.stringify(post)}</pre>
+            <pre>{JSON.stringify(post, null, 2)}</pre>
+            <pre>{JSON.stringify(users, null, 2)}</pre>
             <button htmlFor='submit button'>Submit</button>
         </form>
     )
